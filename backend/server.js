@@ -1,9 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+const path = require("path");
 require("dotenv").config();
-
-const User = require("./models/User");
 
 const app = express();
 
@@ -13,6 +12,11 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
+// Serve static frontend (React build)
+app.use(express.static(path.join(__dirname, "public")));
+
+const User = require("./models/User");
 
 /* =========================
    MONGODB CONNECTION
@@ -24,26 +28,17 @@ mongoose
   .catch((err) => console.log("MongoDB Error:", err));
 
 /* =========================
-   TEST ROUTE
-========================= */
-
-app.get("/", (req, res) => {
-  res.send("Backend running!");
-});
-
-/* =========================
-   SAVE / SYNC CLERK USER
+   API ROUTES
 ========================= */
 
 app.post("/api/save-user", async (req, res) => {
   try {
-
     const { clerkId, email, name } = req.body;
 
     if (!clerkId) {
       return res.status(400).json({
         success: false,
-        message: "clerkId required"
+        message: "clerkId required",
       });
     }
 
@@ -53,25 +48,32 @@ app.post("/api/save-user", async (req, res) => {
       user = await User.create({
         clerkId,
         email,
-        name
+        name,
       });
     }
 
     res.json({
       success: true,
-      user
+      user,
     });
 
   } catch (err) {
-
     console.error(err);
 
     res.status(500).json({
       success: false,
-      error: err.message
+      error: err.message,
     });
-
   }
+});
+
+/* =========================
+   FRONTEND ROUTE (IMPORTANT 🔥)
+========================= */
+
+// React app serve (for all routes)
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
 /* =========================
