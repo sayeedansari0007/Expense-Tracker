@@ -1,0 +1,342 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  background: #020617;
+  color: #e5e7eb;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+/* ========================= */
+/* TRIP PLANNER SECTION */
+/* ========================= */
+
+.trip-section{
+margin-top:40px;
+padding:26px;
+background:#020617;
+border-radius:18px;
+border:1px solid rgba(255,255,255,0.05);
+}
+
+/* HEADING */
+
+.trip-section h2{
+font-size:22px;
+margin-bottom:18px;
+color:#e5e7eb;
+}
+
+
+/* ========================= */
+/* FORM */
+/* ========================= */
+
+.trip-form{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-bottom:25px;
+}
+
+.trip-form input{
+background:#020617;
+border:1px solid #1e293b;
+padding:12px;
+border-radius:10px;
+color:#e5e7eb;
+font-size:14px;
+}
+
+.trip-form input:focus{
+outline:none;
+border-color:#3b82f6;
+}
+
+
+/* CALCULATE BUTTON */
+
+.calculate-btn{
+background:#2563eb;
+border:none;
+padding:12px;
+border-radius:10px;
+color:white;
+cursor:pointer;
+font-weight:600;
+transition:0.25s;
+}
+
+.calculate-btn:hover{
+background:#1d4ed8;
+transform:translateY(-2px);
+}
+
+
+/* ========================= */
+/* RESULT CARDS */
+/* ========================= */
+
+.trip-results{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:18px;
+margin-bottom:20px;
+}
+
+.trip-card{
+background:#020617;
+padding:22px;
+border-radius:14px;
+border:1px solid rgba(255,255,255,0.05);
+text-align:center;
+transition:0.25s;
+}
+
+.trip-card:hover{
+transform:translateY(-4px);
+border-color:#22c55e;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.trip-card h4{
+color:#9ca3af;
+margin-bottom:8px;
+font-size:15px;
+}
+
+.trip-card p{
+font-size:26px;
+font-weight:700;
+color:#e5e7eb;
+}
+
+
+/* ========================= */
+/* ACTION BUTTONS */
+/* ========================= */
+
+.trip-actions{
+display:flex;
+align-items:center;
+gap:28px;
+margin-top:10px;
+flex-wrap:wrap;
+}
+
+
+/* RECOMMEND BUTTON */
+
+.recommend-btn{
+background:#22c55e;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+color:white;
+cursor:pointer;
+font-weight:600;
+transition:0.25s;
+}
+
+.recommend-btn:hover{
+background:#16a34a;
+transform:translateY(-2px);
+}
+
+
+/* ADD TRIP BUTTON */
+
+.add-trip-btn{
+background:#3b82f6;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+color:white;
+cursor:pointer;
+font-weight:600;
+transition:0.25s;
+}
+
+.add-trip-btn:hover{
+background:#2563eb;
+transform:translateY(-2px);
+}
+
+
+/* ========================= */
+/* HISTORY SECTION */
+/* ========================= */
+
+.trip-history{
+margin-top:25px;
+display:flex;
+flex-direction:column;
+gap:12px;
+max-height:280px;
+overflow-y:auto;
+}
+
+
+/* HISTORY HEADER */
+
+.trip-history-header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:12px;
+}
+
+
+/* CLEAR BUTTON */
+
+.clear-history-btn{
+background:#ef4444;
+border:none;
+padding:8px 14px;
+border-radius:8px;
+color:white;
+cursor:pointer;
+font-size:14px;
+transition:0.2s;
+}
+
+.clear-history-btn:hover{
+background:#dc2626;
+}
+
+
+/* ========================= */
+/* HISTORY CARD */
+/* ========================= */
+
+.history-card{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:14px 16px;
+background:#020617;
+border-radius:10px;
+border:1px solid rgba(255,255,255,0.05);
+transition:0.25s;
+}
+
+.history-card:hover{
+transform:translateY(-2px);
+box-shadow:0 8px 20px rgba(0,0,0,0.4);
+}
+
+.history-card h4{
+margin:0;
+font-size:16px;
+color:#e5e7eb;
+}
+
+.history-card p{
+font-size:13px;
+color:#9ca3af;
+margin:2px 0;
+}
+
+
+/* DATE */
+
+.trip-date{
+font-size:11px;
+color:#64748b;
+}
+
+
+/* BUDGET */
+
+.history-budget{
+display:flex;
+align-items:center;
+gap:12px;
+font-size:16px;
+font-weight:600;
+color:#e5e7eb;
+}
+
+
+/* DELETE BUTTON */
+
+.delete-trip-btn{
+background:#ef4444;
+border:none;
+padding:6px 12px;
+border-radius:6px;
+color:white;
+cursor:pointer;
+font-size:12px;
+transition:0.2s;
+}
+
+.delete-trip-btn:hover{
+background:#dc2626;
+}
+
+/* message please login and contin      */
+
+
+.login-overlay{
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.toast-login{
+
+  padding: 18px 32px;
+
+  border-radius: 18px;
+
+  background: linear-gradient(
+    135deg,
+    rgba(99,102,241,0.95),
+    rgba(139,92,246,0.95)
+  );
+
+  color: white;
+
+  font-size: 17px;
+  font-weight: 500;
+
+  letter-spacing: 0.2px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  box-shadow:
+    0 20px 50px rgba(0,0,0,0.6),
+    0 0 25px rgba(99,102,241,0.6);
+
+  animation: loginPop 0.35s ease;
+}
+
+@keyframes loginPop{
+  from{
+    opacity:0;
+    transform:scale(0.85);
+  }
+  to{
+    opacity:1;
+    transform:scale(1);
+  }
+}
