@@ -72,7 +72,7 @@ app.post("/api/save-user", async (req, res) => {
 ========================= */
 
 // React app serve (for all routes)
-app.get("*", (req, res) => {
+app.get("*name", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
